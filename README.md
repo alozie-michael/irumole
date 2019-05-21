@@ -1,2 +1,2 @@
 # Irumole
-This application makes available user banks internet banking application on one platform
+This application makes available user internet banking application across all banks into one platform
