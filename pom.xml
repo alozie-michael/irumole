@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.banking.automation</groupId>
-	<artifactId>autoBank</artifactId>
+	<artifactId>irumole</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>autoBank</name>
-	<description>Demo project for Spring Boot</description>
+	<name>irumole</name>
+	<description>This application makes available user banks internet banking application on one platform</description>
 
 	<properties>
 		<java.version>1.8</java.version>
