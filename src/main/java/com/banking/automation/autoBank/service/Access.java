@@ -24,9 +24,6 @@ public class Access {
 	
 	private Logger logger = LoggerFactory.getLogger(Access.class);
 
-	public Access() {
-	}
-
 	public WebDriver login(User user, String url) {
 		System.setProperty("webdriver.chrome.driver", "");
 		WebDriver driver = new ChromeDriver();
