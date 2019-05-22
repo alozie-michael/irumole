@@ -4,16 +4,19 @@ import com.banking.automation.irumole.dao.BankLogin;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Citi {
+public class Citi implements BankOperation {
 
+    @Override
     public String getBalance(BankLogin bankLogin){
         return "Your Citi Bank Balances";
     }
 
+    @Override
     public String getTransactions(BankLogin bankLogin){
         return "Your Citi Bank account transactions";
     }
 
+    @Override
     public String getAccounts(BankLogin bankLogin){
         return "Your Citi Bank accounts";
     }

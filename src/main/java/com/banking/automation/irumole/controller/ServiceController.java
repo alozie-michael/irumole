@@ -6,15 +6,12 @@ import com.banking.automation.irumole.dao.BankLogin;
 import com.banking.automation.irumole.service.ServiceResolver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import static com.banking.automation.irumole.dao.Service.*;
 
 @RestController
-@RequestMapping(path = "/autoBank")
+@RequestMapping(path = "/service")
 public class ServiceController {
 
 	private final ServiceResolver serviceResolver;
@@ -24,18 +21,18 @@ public class ServiceController {
 		this.serviceResolver = serviceResolver;
 	}
 
-	@PostMapping(path = "/getBalance/")
-	String getBalance(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
+	@PostMapping(path = "/balance")
+	String retrieveBalance(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
 		return serviceResolver.resolve(bankLogin, GET_BALANCE);
 	}
 
-	@PostMapping(path = "/getTransactions")
-	String getTransactions(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
+	@PostMapping(path = "/transactions")
+	String retrieveTransactions(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
 		return serviceResolver.resolve(bankLogin, GET_TRANSACTIONS);
 	}
 
-	@PostMapping(path = "/getAccounts")
-	String getAccounts(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
+	@PostMapping(path = "/accounts")
+	String retrieveAccounts(@Valid @RequestBody BankLogin bankLogin, Errors errors) {
 		return serviceResolver.resolve(bankLogin, GET_ACOOUNT);
 	}
 }

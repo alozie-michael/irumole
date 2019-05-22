@@ -4,16 +4,19 @@ import com.banking.automation.irumole.dao.BankLogin;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Stanbic {
+public class Stanbic implements BankOperation {
 
+    @Override
     public String getBalance(BankLogin bankLogin){
         return "Your Stanbic Bank Balances";
     }
 
+    @Override
     public String getTransactions(BankLogin bankLogin){
         return "Your Stanbic Bank account transactions";
     }
 
+    @Override
     public String getAccounts(BankLogin bankLogin){
         return "Your Stanbic Bank accounts";
     }

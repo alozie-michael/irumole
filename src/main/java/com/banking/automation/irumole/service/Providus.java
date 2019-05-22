@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.banking.automation.irumole.dao.User;
 
 @Service
-public class Providus {
+public class Providus implements BankOperation {
 	
 	private Logger logger = LoggerFactory.getLogger(Providus.class);
 
@@ -32,8 +32,9 @@ public class Providus {
 		}*/
 		return driver;
 	}
-	
-	String getBalance(BankLogin bankLogin) {
+
+	@Override
+	public String getBalance(BankLogin bankLogin) {
 		/*List<Account> accounts = new ArrayList<Account>();
 		try {
 			logger.error("=====providus login=======");
@@ -67,11 +68,12 @@ public class Providus {
 		return "Your Providus Bank account balances";
 	}
 
-
+	@Override
 	public String getTransactions(BankLogin bankLogin){
 		return "Your Providus Bank account transactions";
 	}
 
+	@Override
 	public String getAccounts(BankLogin bankLogin){
 		return "Your Providus Bank accounts";
 	}
