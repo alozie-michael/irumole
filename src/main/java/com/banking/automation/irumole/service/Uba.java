@@ -4,16 +4,19 @@ import com.banking.automation.irumole.dao.BankLogin;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Uba {
+public class Uba implements BankOperation {
 
+    @Override
     public String getBalance(BankLogin bankLogin){
         return "Your UBA Bank Balances";
     }
 
+    @Override
     public String getTransactions(BankLogin bankLogin){
         return "Your UBA Bank account transactions";
     }
 
+    @Override
     public String getAccounts(BankLogin bankLogin){
         return "Your UBA Bank accounts";
     }

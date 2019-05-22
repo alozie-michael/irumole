@@ -4,16 +4,19 @@ import com.banking.automation.irumole.dao.BankLogin;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GuaranteedTrust {
+public class GuaranteedTrust implements BankOperation {
 
+    @Override
     public String getBalance(BankLogin bankLogin){
         return "Your GT Bank Balances";
     }
 
+    @Override
     public String getTransactions(BankLogin bankLogin){
         return "Your GT Bank account transactions";
     }
 
+    @Override
     public String getAccounts(BankLogin bankLogin){
         return "Your GT Bank accounts";
     }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import com.banking.automation.irumole.dao.User;
 
 @Service
-public class Access {
+public class Access implements BankOperation {
 	
 	private Logger logger = LoggerFactory.getLogger(Access.class);
 
@@ -31,8 +31,9 @@ public class Access {
 		}*/
 		return driver;
 	}
-	
-	String getBalance(BankLogin bankLogin){
+
+	@Override
+	public String getBalance(BankLogin bankLogin){
 		/*List<Account> accounts = new ArrayList<Account>();
 		try {
 			logger.info("=======Access bank login========");
@@ -61,11 +62,23 @@ public class Access {
 		return "Your Access Bank account balances";
 	}
 
+	@Override
 	public String getTransactions(BankLogin bankLogin){
 		return "Your Access Bank account transactions";
 	}
 
+	@Override
 	public String getAccounts(BankLogin bankLogin){
 		return "Your Access Bank accounts";
 	}
+
+
+	private WebDriver login() {
+		return new ChromeDriver();
+	}
+
+	private void logout(WebDriver driver) {
+	}
+
+
 }
