@@ -1,6 +1,11 @@
 package com.banking.automation.irumole.service;
 
 import com.banking.automation.irumole.dao.BankLogin;
+import com.banking.automation.irumole.dto.Account;
+import com.banking.automation.irumole.dto.Balance;
+import com.banking.automation.irumole.dto.Transaction;
+
+import java.util.List;
 
 class BankService {
 
@@ -10,15 +15,15 @@ class BankService {
         this.bankOperation = bankOperation;
     }
 
-    String returnBalance(BankLogin bankLogin){
+    Balance returnBalance(BankLogin bankLogin){
         return bankOperation.getBalance(bankLogin);
     }
 
-    String returnTransactions(BankLogin bankLogin){
+    List<Transaction> returnTransactions(BankLogin bankLogin){
         return bankOperation.getTransactions(bankLogin);
     }
 
-    String returnAccounts(BankLogin bankLogin){
-        return bankOperation.getBalance(bankLogin);
+    Account returnAccounts(BankLogin bankLogin){
+        return bankOperation.getAccounts(bankLogin);
     }
 }

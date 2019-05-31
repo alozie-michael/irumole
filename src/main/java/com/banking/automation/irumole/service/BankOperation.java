@@ -1,13 +1,18 @@
 package com.banking.automation.irumole.service;
 
 import com.banking.automation.irumole.dao.BankLogin;
+import com.banking.automation.irumole.dto.Account;
+import com.banking.automation.irumole.dto.Balance;
+import com.banking.automation.irumole.dto.Transaction;
+
+import java.util.List;
 
 public interface BankOperation {
 
-    String getAccounts(BankLogin bankLogin);
+    Account getAccounts(BankLogin bankLogin);
 
-    String getBalance(BankLogin bankLogin);
+    Balance getBalance(BankLogin bankLogin);
 
-    String getTransactions(BankLogin bankLogin);
+    List<Transaction> getTransactions(BankLogin bankLogin);
 
 }

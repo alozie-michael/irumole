@@ -1,19 +1,37 @@
 package com.banking.automation.irumole.service;
 
 
+import com.banking.automation.irumole.Security.Security;
 import com.banking.automation.irumole.dao.BankLogin;
 import com.banking.automation.irumole.dao.Service;
+import com.banking.automation.irumole.model.User;
+import com.banking.automation.irumole.model.UserBank;
+import com.banking.automation.irumole.repository.UserRepository;
 import lombok.Data;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+import java.util.Optional;
 
 @Data
 @org.springframework.stereotype.Service
 public class ServiceResolver {
 
-	public String resolve(BankLogin bankLogin, Service requestedService) {
+	private Logger logger = LoggerFactory.getLogger(ServiceResolver.class);
 
-		bankLogin.setUrl(""); //retrieve URL from DB
-		//List<Account> accounts = new ArrayList<Account>();
-		String response = "Couldn't resolve bank";
+	private final
+	UserRepository userRepository;
+
+	@Autowired
+	public ServiceResolver(UserRepository userRepository) {
+		this.userRepository = userRepository;
+	}
+
+	public Object resolve(String username, String bankCode, Service requestedService) {
+		Object response = "Couldn't resolve bank";
+		BankLogin bankLogin = getUserLoginCredentials(username, bankCode);
 
 		switch (bankLogin.getBankCode()) {
 			case "044":{
@@ -127,9 +145,9 @@ public class ServiceResolver {
 		return response;
 	}
 
-	private String serviceResponse(BankLogin bankLogin, Service requestedService, String response, BankService bankService) {
+	private Object serviceResponse(BankLogin bankLogin, Service requestedService, Object response, BankService bankService) {
 		switch (requestedService){
-			case GET_ACOOUNT:
+			case GET_ACCOUNT:
 				response = bankService.returnAccounts(bankLogin);
 				break;
 			case GET_BALANCE:
@@ -140,5 +158,19 @@ public class ServiceResolver {
 				break;
 		}
 		return response;
+	}
+
+	private BankLogin getUserLoginCredentials(String username, String bankCode){
+		Optional<User> user = userRepository.getUser(username);
+		List<UserBank> userBanks = user.get().getUserBank();
+		Optional<UserBank> accountDetails = userBanks.stream().filter(userBank -> userBank.getBank().getBankCode().equals(bankCode)
+		).findFirst();
+		//TODO throw bank not found error.
+		BankLogin bankLogin = new BankLogin();
+		bankLogin.setUsername(Security.decrypt(accountDetails.get().getUsername(), user.get().getBvn()));
+		bankLogin.setPassword(Security.decrypt(accountDetails.get().getPassword(), user.get().getBvn()));
+		bankLogin.setUrl(accountDetails.get().getBank().getUrl());
+		bankLogin.setBankCode(accountDetails.get().getBank().getBankCode());
+		return bankLogin;
 	}
 }

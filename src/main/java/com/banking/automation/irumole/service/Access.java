@@ -1,6 +1,9 @@
 package com.banking.automation.irumole.service;
 
 import com.banking.automation.irumole.dao.BankLogin;
+import com.banking.automation.irumole.dto.Account;
+import com.banking.automation.irumole.dto.Balance;
+import com.banking.automation.irumole.dto.Transaction;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
@@ -9,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import com.banking.automation.irumole.dao.User;
 
-@Service
+import java.util.ArrayList;
+import java.util.List;
+
 public class Access implements BankOperation {
 	
 	private Logger logger = LoggerFactory.getLogger(Access.class);
@@ -33,8 +38,8 @@ public class Access implements BankOperation {
 	}
 
 	@Override
-	public String getBalance(BankLogin bankLogin){
-		/*List<Account> accounts = new ArrayList<Account>();
+	public Balance getBalance(BankLogin bankLogin){
+		/*List<Balance> accounts = new ArrayList<Balance>();
 		try {
 			logger.info("=======Access bank login========");
 			WebDriver driver = login(user, url);
@@ -49,7 +54,7 @@ public class Access implements BankOperation {
 				String accountNumber = accountRow.findElement(By.cssSelector("td:nth-child(2)")).getText().trim();
 				String accountType =  accountRow.findElement(By.cssSelector("td:nth-child(4)")).getText().trim();
 				double accountBalance = Double.parseDouble(accountRow.findElements(By.className("success")).get(1).getText().trim().replace(",", "").substring(1));
-				Account account = new Account(accountName, accountNumber, accountBalance, accountType);
+				Balance account = new Balance(accountName, accountNumber, accountBalance, accountType);
 				logger.info(account.toString());
 				accounts.add(account);
 			}
@@ -59,17 +64,17 @@ public class Access implements BankOperation {
 			logger.error("=====getBalance(bankLogin) failed========");
 			e.printStackTrace();
 		}*/
-		return "Your Access Bank account balances";
+		return new Balance();
 	}
 
 	@Override
-	public String getTransactions(BankLogin bankLogin){
-		return "Your Access Bank account transactions";
+	public List<Transaction> getTransactions(BankLogin bankLogin){
+		return new ArrayList<>();
 	}
 
 	@Override
-	public String getAccounts(BankLogin bankLogin){
-		return "Your Access Bank accounts";
+	public Account getAccounts(BankLogin bankLogin){
+		return new Account();
 	}
 
 

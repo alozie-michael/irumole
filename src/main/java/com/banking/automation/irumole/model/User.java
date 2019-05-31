@@ -1,12 +1,14 @@
 package com.banking.automation.irumole.model;
 
 import lombok.Data;
+import org.bson.types.ObjectId;
 
 import java.util.List;
 
 @Data
 public final class User {
-
+    private final String roles = "USER";
+    private ObjectId id;
     private String lastName;
     private String otherName;
     private String bvn;
