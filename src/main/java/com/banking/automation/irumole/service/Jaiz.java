@@ -1,24 +1,30 @@
 package com.banking.automation.irumole.service;
 
 import com.banking.automation.irumole.dao.BankLogin;
+import com.banking.automation.irumole.dto.Account;
+import com.banking.automation.irumole.dto.Balance;
+import com.banking.automation.irumole.dto.Transaction;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class Jaiz implements BankOperation {
 
     @Override
-    public String getBalance(BankLogin bankLogin){
-        return "Your Jaiz Bank Balances";
+    public Balance getBalance(BankLogin bankLogin){
+        return new Balance();
     }
 
     @Override
-    public String getTransactions(BankLogin bankLogin){
-        return "Your Jaiz Bank account transactions";
+    public List<Transaction> getTransactions(BankLogin bankLogin){
+        return new ArrayList<>();
     }
 
     @Override
-    public String getAccounts(BankLogin bankLogin){
-        return "Your Jaiz Bank accounts";
+    public Account getAccounts(BankLogin bankLogin){
+        return new Account();
     }
 
 }

@@ -9,6 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 public class IrumoleApplication {
 
 	public static void main(String[] args) {
+		System.setProperty("webdriver.chrome.driver", "chromedriver");
 		SpringApplication.run(IrumoleApplication.class, args);
 	}
 
