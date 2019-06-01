@@ -7,6 +7,7 @@ import com.banking.automation.irumole.dto.GenericServiceResponseBuilder;
 import com.banking.automation.irumole.dto.Status;
 import com.banking.automation.irumole.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -26,23 +27,26 @@ public class UserController {
 	}
 
 	@PostMapping(path = "/signUp")
-	GenericServiceResponse signUp(@Valid @RequestBody User user, Errors errors) {
+	public ResponseEntity<GenericServiceResponse> signUp(@Valid @RequestBody User user, Errors errors) {
 		if(errors.hasErrors()){
-			return GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build();
+			return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build());
 		}
-		return getResponse(userService.signUp(user));
+		return ResponseEntity.ok(getResponse(userService.signUp(user)));
 	}
 
 	@PostMapping(path = "/addBank")
-    GenericServiceResponse addBank(@Valid @RequestBody UserBank userBank, Errors errors) {
+    public ResponseEntity<GenericServiceResponse> addBank(@Valid @RequestBody UserBank userBank, Errors errors) {
+		if(errors.hasErrors()){
+			return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build());
+		}
 		org.springframework.security.core.userdetails.User principle = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return getResponse(userService.addBank(principle.getUsername(), userBank));
+		return ResponseEntity.ok(getResponse(userService.addBank(principle.getUsername(), userBank)));
 	}
 
 	@DeleteMapping(path = "/removeBank/{bankCode}")
-    GenericServiceResponse deleteAccount(@PathVariable String bankCode) {
+    public ResponseEntity<GenericServiceResponse> deleteAccount(@PathVariable String bankCode) {
 		org.springframework.security.core.userdetails.User principle = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		return getResponse(userService.removeBank(principle.getUsername(), bankCode));
+		return ResponseEntity.ok(getResponse(userService.removeBank(principle.getUsername(), bankCode)));
 	}
 
 	private GenericServiceResponse getResponse(String status){

@@ -25,5 +25,4 @@ public class Database {
         MongoClient mongoClient = MongoClients.create(settings);
         return mongoClient.getDatabase("irumole");
     }
-
 }

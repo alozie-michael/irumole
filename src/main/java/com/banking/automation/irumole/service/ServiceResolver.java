@@ -29,9 +29,9 @@ public class ServiceResolver {
 		this.userRepository = userRepository;
 	}
 
-	public Object resolve(String username, String bankCode, Service requestedService) {
+	public Object resolve(String username, BankLogin login, Service requestedService) {
 		Object response = "Couldn't resolve bank";
-		BankLogin bankLogin = getUserLoginCredentials(username, bankCode);
+		BankLogin bankLogin = getUserLoginCredentials(username, login);
 
 		switch (bankLogin.getBankCode()) {
 			case "044":{
@@ -160,17 +160,16 @@ public class ServiceResolver {
 		return response;
 	}
 
-	private BankLogin getUserLoginCredentials(String username, String bankCode){
+	private BankLogin getUserLoginCredentials(String username, BankLogin login){
 		Optional<User> user = userRepository.getUser(username);
 		List<UserBank> userBanks = user.get().getUserBank();
-		Optional<UserBank> accountDetails = userBanks.stream().filter(userBank -> userBank.getBank().getBankCode().equals(bankCode)
+		Optional<UserBank> accountDetails = userBanks.stream().filter(userBank -> userBank.getBank().getBankCode().equals(login.getBankCode())
 		).findFirst();
 		//TODO throw bank not found error.
-		BankLogin bankLogin = new BankLogin();
-		bankLogin.setUsername(Security.decrypt(accountDetails.get().getUsername(), user.get().getBvn()));
-		bankLogin.setPassword(Security.decrypt(accountDetails.get().getPassword(), user.get().getBvn()));
-		bankLogin.setUrl(accountDetails.get().getBank().getUrl());
-		bankLogin.setBankCode(accountDetails.get().getBank().getBankCode());
-		return bankLogin;
+		login.setUsername(Security.decrypt(accountDetails.get().getUsername(), user.get().getBvn()));
+		login.setPassword(Security.decrypt(accountDetails.get().getPassword(), user.get().getBvn()));
+		login.setUrl(accountDetails.get().getBank().getUrl());
+		login.setBankCode(accountDetails.get().getBank().getBankCode());
+		return login;
 	}
 }
