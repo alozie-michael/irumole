@@ -1,7 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9390b3de-7bc8-4c60-8154-a1ceb795aaf0" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="9390b3de-7bc8-4c60-8154-a1ceb795aaf0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application-dev.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/IrumoleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/IrumoleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/Security/Security.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/Security/Security.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/AuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/AuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/AuthorizationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/AuthorizationServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/CustomTokenEnhancer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/CustomTokenEnhancer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/CustomUserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/CustomUserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/ResourceServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/controller/ServiceController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dao/BankLogin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dao/BankLogin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dao/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dao/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dao/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dao/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dao/UserBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dao/UserBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/Balance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/Balance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/GenericServiceResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/GenericServiceResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/GenericServiceResponseBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/GenericServiceResponseBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/Status.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/dto/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/dto/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/model/Bank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/model/Bank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/model/UserBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/model/UserBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/repository/BankRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/repository/BankRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/repository/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/repository/Database.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/repository/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Access.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Access.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/BankOperation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/BankOperation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/BankService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Citi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Citi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Diamond.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Diamond.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Eco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Eco.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Fcmb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Fcmb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Fidelity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Fidelity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/FirstBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/FirstBank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/GuaranteedTrust.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/GuaranteedTrust.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Heritage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Heritage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Jaiz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Jaiz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Keystone.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Keystone.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Polaris.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Polaris.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Providus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Providus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/ServiceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/ServiceResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Skye.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Skye.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Stanbic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Stanbic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/StandardChartered.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/StandardChartered.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Sterling.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Sterling.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Uba.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Uba.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Union.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Union.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Unity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Unity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Wema.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Wema.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/banking/automation/irumole/service/Zenith.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Zenith.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/banking/automation/irumole/IrumoleApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/irumole/IrumoleApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+    </list>
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -10,7 +74,33 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf />
+=======
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/config/AuthorizationServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="27" column="70" lean-forward="true" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -81,8 +171,13 @@
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Jaiz.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Keystone.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/service/provider/Polaris.java" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/config/AuthorizationServer.java" />
+=======
+        <option value="$PROJECT_DIR$/src/main/java/com/irumole/config/AuthorizationServer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
       </list>
     </option>
   </component>
@@ -134,6 +229,46 @@
               <item name="irumole" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
+<<<<<<< HEAD
+=======
+            <path>
+              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
+              <item name="irumole" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
           </expand>
           <select />
         </subPane>
@@ -148,7 +283,11 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+<<<<<<< HEAD
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559585141133" />
+=======
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1559581219429" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -179,7 +318,11 @@
       </list>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="RunManager" selected="Spring Boot.AutoBankApplication">
+=======
+  <component name="RunManager">
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <module name="irumole" />
       <option name="VM_PARAMETERS" />
@@ -227,6 +370,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="AutoBankApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="irumole" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.banking.automation.autoBank.AutoBankApplication" />
@@ -234,6 +378,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+=======
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     <configuration name="AutoBankApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="irumole" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.irumole.IrumoleApplication" />
@@ -242,10 +388,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <list>
       <item itemvalue="Spring Boot.AutoBankApplication" />
       <item itemvalue="Spring Boot.AutoBankApplication (1)" />
     </list>
+=======
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -263,12 +412,20 @@
       <workItem from="1559050115365" duration="45431000" />
       <workItem from="1559285437115" duration="3540000" />
       <workItem from="1559300276079" duration="10395000" />
+<<<<<<< HEAD
       <workItem from="1559342511299" duration="15731000" />
+=======
+      <workItem from="1559342511299" duration="14979000" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="127928000" />
+=======
+    <option name="totallyTimeSpent" value="127176000" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -281,6 +438,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+<<<<<<< HEAD
+=======
+    <editor active="true" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -292,12 +453,20 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
+<<<<<<< HEAD
       <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.3421687" />
+=======
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.3421687" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32891566" />
+<<<<<<< HEAD
       <window_info anchor="bottom" id="Run" order="7" weight="0.26746988" />
+=======
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.26746988" />
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
       <window_info anchor="bottom" id="Debug" order="8" weight="0.30361447" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -753,6 +922,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
@@ -767,6 +937,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="870">
           <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
+=======
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/config/AuthorizationServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="58" column="26" selection-start-line="58" selection-start-column="26" selection-end-line="58" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/config/ResourceServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="27" column="70" lean-forward="true" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+>>>>>>> cd38e538328c116261534971ebf145a8fe6cff8c
         </state>
       </provider>
     </entry>
