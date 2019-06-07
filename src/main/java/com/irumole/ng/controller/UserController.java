@@ -26,7 +26,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path = "/signUp")
+    @PostMapping(path = "/register")
     public ResponseEntity<GenericServiceResponse> signUp(@Valid @RequestBody User user, Errors errors) {
         if (errors.hasErrors()) {
             return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build());
@@ -39,14 +39,12 @@ public class UserController {
         if (errors.hasErrors()) {
             return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build());
         }
-        org.springframework.security.core.userdetails.User principle = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResponseEntity.ok(getResponse(userService.addBank(principle.getUsername(), userBank)));
+        return ResponseEntity.ok(getResponse(userService.addBank(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), userBank)));
     }
 
     @DeleteMapping(path = "/bank/{bankCode}")
     public ResponseEntity<GenericServiceResponse> deleteAccount(@PathVariable String bankCode) {
-        org.springframework.security.core.userdetails.User principle = (org.springframework.security.core.userdetails.User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return ResponseEntity.ok(getResponse(userService.removeBank(principle.getUsername(), bankCode)));
+        return ResponseEntity.ok(getResponse(userService.removeBank(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), bankCode)));
     }
 
     private GenericServiceResponse getResponse(String status) {
