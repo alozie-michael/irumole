@@ -57,6 +57,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints){
         endpoints.authenticationManager(authenticationManager)
+                .tokenStore(tokenStore())
                 .accessTokenConverter(jwtAccessTokenConverter());
     }
 }

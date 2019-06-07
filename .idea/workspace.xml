@@ -4,10 +4,6 @@
     <list default="true" id="36bc5662-420f-442d-b860-d27c9b45183e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/ResourceServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/ResourceServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/ServiceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/ServiceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/irumole/ng/repository/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/irumole/ng/repository/Database.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,20 +14,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/ng/service/UserServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-234">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+            <state relative-caret-position="421">
+              <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -50,11 +37,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/SecurityConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/ResourceServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/repository/Database.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java" />
       </list>
     </option>
   </component>
@@ -119,15 +106,6 @@
               <item name="ng" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="irumole" type="b2602c69:ProjectViewProjectNode" />
-              <item name="irumole" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="ng" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -186,12 +164,12 @@
       <workItem from="1559736815806" duration="58000" />
       <workItem from="1559737982797" duration="320000" />
       <workItem from="1559838219926" duration="9000" />
-      <workItem from="1559920244914" duration="6128000" />
+      <workItem from="1559920244914" duration="6991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14807000" />
+    <option name="totallyTimeSpent" value="15670000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -207,12 +185,12 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.328125" />
+      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.32771084" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.5007153" side_tool="true" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49928468" visible="true" weight="0.30361447" />
+      <window_info anchor="bottom" id="Run" order="7" sideWeight="0.49928468" weight="0.30361447" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -385,15 +363,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/ng/service/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-234">
+        <state relative-caret-position="75">
           <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/irumole/ng/config/AuthorizationServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="56" column="13" lean-forward="true" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
+        <state relative-caret-position="421">
+          <caret line="62" column="1" lean-forward="true" selection-start-line="62" selection-start-column="1" selection-end-line="62" selection-end-column="1" />
         </state>
       </provider>
     </entry>
