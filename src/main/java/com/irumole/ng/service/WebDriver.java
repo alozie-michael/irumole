@@ -36,8 +36,8 @@ public class WebDriver {
     protected org.openqa.selenium.WebDriver getDriver(){
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("window-size=1400,800");
-        options.addArguments("headless");
+        options.addArguments("--headless");
+        options.addArguments("window-size=1200x600");
 
         String driverPath;
 
@@ -51,6 +51,7 @@ public class WebDriver {
                 //GOOGLE_CHROME_SHIM GOOGLE_CHROME_BIN
                 String binaryPath=EnvironmentUtils.getProcEnvironment().get("GOOGLE_CHROME_SHIM");
                 logger.info("Path: {}", binaryPath);
+                binaryPath = binaryPath.replace("-stable", "");
                 options.setBinary(binaryPath);
                 options.addArguments("--disable-gpu");
                 options.addArguments("--no-sandbox");
