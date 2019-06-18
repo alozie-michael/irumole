@@ -5,6 +5,7 @@ import com.irumole.ng.dto.Account;
 import com.irumole.ng.dto.Balance;
 import com.irumole.ng.dto.Transaction;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 public interface BankOperation {

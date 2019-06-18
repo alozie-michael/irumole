@@ -5,6 +5,7 @@ import com.irumole.ng.dto.Account;
 import com.irumole.ng.dto.Balance;
 import com.irumole.ng.dto.Transaction;
 
+import java.net.MalformedURLException;
 import java.util.List;
 
 class BankService {
@@ -15,15 +16,15 @@ class BankService {
         this.bankOperation = bankOperation;
     }
 
-    Balance returnBalance(BankLogin bankLogin) {
+    Balance returnBalance(BankLogin bankLogin){
         return bankOperation.getBalance(bankLogin);
     }
 
-    List<Transaction> returnTransactions(BankLogin bankLogin) {
+    List<Transaction> returnTransactions(BankLogin bankLogin){
         return bankOperation.getTransactions(bankLogin);
     }
 
-    Account returnAccounts(BankLogin bankLogin) {
+    Account returnAccounts(BankLogin bankLogin){
         return bankOperation.getAccounts(bankLogin);
     }
 }

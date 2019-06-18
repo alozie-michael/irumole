@@ -8,7 +8,6 @@ import com.irumole.ng.service.BankOperation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -20,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class Providus implements BankOperation {
+public class Providus extends com.irumole.ng.service.WebDriver implements BankOperation {
 
     private Logger logger = LoggerFactory.getLogger(Providus.class);
 
@@ -92,7 +91,8 @@ public class Providus implements BankOperation {
     }
 
     private WebDriver login(BankLogin bankLogin) {
-        WebDriver driver = new ChromeDriver();
+
+        WebDriver driver = getDriver();
         try {
             driver.get(bankLogin.getUrl());
             WebDriverWait wait = new WebDriverWait(driver, 60);
