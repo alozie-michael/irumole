@@ -8,7 +8,6 @@ import com.irumole.ng.service.BankOperation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
@@ -20,12 +19,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class GuaranteedTrust implements BankOperation {
+public class GuaranteedTrust extends com.irumole.ng.service.WebDriver implements BankOperation {
 
     private Logger logger = LoggerFactory.getLogger(GuaranteedTrust.class);
 
     @Override
-    public Balance getBalance(BankLogin bankLogin) {
+    public Balance getBalance(BankLogin bankLogin){
         WebDriver driver = login(bankLogin);
         WebDriverWait wait = new WebDriverWait(driver, 60);
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_ctl0_ItemsGrid")));
@@ -42,7 +41,7 @@ public class GuaranteedTrust implements BankOperation {
     }
 
     @Override
-    public List<Transaction> getTransactions(BankLogin bankLogin) {
+    public List<Transaction> getTransactions(BankLogin bankLogin){
         List<Transaction> transactions = new ArrayList<>();
         WebDriver driver = login(bankLogin);
         driver.findElement(By.cssSelector("#__a div:nth-child(2)")).click();
@@ -69,14 +68,14 @@ public class GuaranteedTrust implements BankOperation {
     }
 
     @Override
-    public Account getAccounts(BankLogin bankLogin) {
+    public Account getAccounts(BankLogin bankLogin){
         Account account = new Account();
         BeanUtils.copyProperties(getBalance(bankLogin), account);
         return account;
     }
 
-    private WebDriver login(BankLogin bankLogin) {
-        WebDriver driver = new ChromeDriver();
+    private WebDriver login(BankLogin bankLogin){
+        WebDriver driver = getDriver();
         try {
             driver.get(bankLogin.getUrl());
             WebDriverWait wait = new WebDriverWait(driver, 60);
