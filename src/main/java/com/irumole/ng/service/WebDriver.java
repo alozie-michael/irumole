@@ -36,14 +36,11 @@ public class WebDriver {
     protected org.openqa.selenium.WebDriver getDriver(){
 
         ChromeOptions options = new ChromeOptions();
-        options.addArguments("window-size=1400,800");
-        options.addArguments("headless");
-
-        String driverPath;
+        options.addArguments("--window-size=1400,800");
+        options.addArguments("--headless");
 
         if(OS.isFamilyMac()){
-            driverPath = "chromedriver";
-            System.setProperty("webdriver.chrome.driver", driverPath);
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
 
         if(OS.isFamilyUnix()){
@@ -52,6 +49,8 @@ public class WebDriver {
                 String binaryPath=EnvironmentUtils.getProcEnvironment().get("GOOGLE_CHROME_SHIM");
                 logger.info("Path: {}", binaryPath);
                 options.setBinary(binaryPath);
+                options.addArguments("--disable-gpu");
+                options.addArguments("--no-sandbox");
             }catch(Exception e){
                 e.printStackTrace();
             }
