@@ -13,26 +13,6 @@ public class WebDriver {
 
     private Logger logger = LoggerFactory.getLogger(WebDriver.class);
 
-   /* protected org.openqa.selenium.WebDriver getDriver(){
-
-        String webDriverUrl = "http://localhost:4444/wd/hub";
-
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
-        return new RemoteWebDriver(getUrl(webDriverUrl), options);
-    }
-
-    private URL getUrl(String url){
-        URL newUrl = null;
-        try {
-            logger.info("connecting to remote webdriver on {}", url);
-            newUrl = new URL(url);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return newUrl;
-    }*/
-
     protected org.openqa.selenium.WebDriver getDriver(){
 
         ChromeOptions options = new ChromeOptions();
@@ -40,7 +20,7 @@ public class WebDriver {
         options.addArguments("--headless");
 
         if(OS.isFamilyMac()){
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
+            System.setProperty("webdriver.chrome.driver", "OneDrive - Trium Networks Limited/dev/chromedriver");
         }
 
         if(OS.isFamilyUnix()){
