@@ -2,6 +2,7 @@ package com.irumole.ng.controller;
 
 import com.irumole.ng.dao.BankLogin;
 import com.irumole.ng.dao.Service;
+import com.irumole.ng.dao.TransactionDate;
 import com.irumole.ng.dto.GenericServiceResponse;
 import com.irumole.ng.dto.GenericServiceResponseBuilder;
 import com.irumole.ng.dto.Status;
@@ -33,10 +34,16 @@ public class ServiceController {
                 .build());
     }
 
-    @GetMapping(path = "/transactions/{bankCode}/from/{from}/to/{to}")
-    public ResponseEntity<GenericServiceResponse> retrieveTransactions(@PathVariable String from,
-                                                                       @PathVariable String to,
+    @GetMapping(path = "/transactions/{bankCode}/from/{fromDay}-{fromMonth}-{fromYear}/to/{toDay}-{toMonth}-{toYear}")
+    public ResponseEntity<GenericServiceResponse> retrieveTransactions(@PathVariable String fromDay,
+                                                                       @PathVariable String fromMonth,
+                                                                       @PathVariable String fromYear,
+                                                                       @PathVariable String toDay,
+                                                                       @PathVariable String toMonth,
+                                                                       @PathVariable String toYear,
                                                                        @PathVariable String bankCode) {
+        TransactionDate from = new TransactionDate(fromDay, fromMonth, fromYear);
+        TransactionDate to = new TransactionDate(toDay, toMonth, toYear);
         return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
                 .withStatus(Status.SUCCESS)
                 .withData(serviceResolver.resolve(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), new BankLogin(bankCode, from, to), Service.GET_TRANSACTIONS))

@@ -8,8 +8,8 @@ public class BankLogin {
     private String password;
     private String url;
     private String bankCode;
-    private String from;
-    private String to;
+    private TransactionDate from;
+    private TransactionDate to;
 
     public BankLogin() {
 
@@ -19,7 +19,7 @@ public class BankLogin {
         this.bankCode = bankCode;
     }
 
-    public BankLogin(String bankCode, String from, String to) {
+    public BankLogin(String bankCode, TransactionDate from, TransactionDate to) {
         this.bankCode = bankCode;
         this.from = from;
         this.to = to;
