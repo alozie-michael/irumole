@@ -65,11 +65,12 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".acct-details")));
             driver.findElement(By.cssSelector(".acct-details a:nth-child(3)")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#content form")));
-            driver.findElement(By.id("Mini Statement.Date From")).sendKeys(bankLogin.getFrom());
-            driver.findElement(By.id("Mini Statement.Date To")).sendKeys(bankLogin.getTo());
+            //set transaction start and end date - mm/dd/yyyy
+            driver.findElement(By.id("Mini Statement.Date From")).sendKeys(bankLogin.getFrom().getDay() + "/" + bankLogin.getFrom().getMonth() + "/" + bankLogin.getFrom().getYear());
+            driver.findElement(By.id("Mini Statement.Date To")).sendKeys(bankLogin.getTo().getDay() + "/" + bankLogin.getTo().getMonth() + "/" + bankLogin.getTo().getYear());
             driver.findElement(By.cssSelector("footer button")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Results")));
-            List<WebElement> resultRows = driver.findElements(By.cssSelector("tbody tr"));
+            List<WebElement> resultRows = driver.findElements(By.cssSelector("#Results tbody tr"));
             resultRows.forEach(row -> {
                 Transaction transaction = new Transaction();
                 List<WebElement> tds = row.findElements(By.tagName("td"));

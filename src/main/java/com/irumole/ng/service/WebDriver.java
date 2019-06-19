@@ -20,7 +20,7 @@ public class WebDriver {
         options.addArguments("--headless");
 
         if(OS.isFamilyMac()){
-            System.setProperty("webdriver.chrome.driver", "OneDrive - Trium Networks Limited/dev/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/chromedriver");
         }
 
         if(OS.isFamilyUnix()){
