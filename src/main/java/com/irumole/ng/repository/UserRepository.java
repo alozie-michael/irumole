@@ -36,4 +36,7 @@ public class UserRepository extends Database {
         getUserMongoCollection().insertOne(user);
     }
 
+    public void deleteUser(User user){
+        getUserMongoCollection().deleteOne(eq("email", user.getEmail()));
+    }
 }

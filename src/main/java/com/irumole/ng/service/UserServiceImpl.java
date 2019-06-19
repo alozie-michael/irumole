@@ -81,4 +81,15 @@ public class UserServiceImpl implements UserService {
         userRepository.updateUser(username, "userBank", newUserBank);
         return "success";
     }
+
+    @Override
+    public String deleteUser(String username) {
+        Optional<com.irumole.ng.model.User> user = userRepository.getUser(username);
+        if (!user.isPresent()) {
+            return "invalid user";
+        }
+        userRepository.deleteUser(user.get());
+        return "success";
+    }
+
 }

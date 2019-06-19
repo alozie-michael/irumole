@@ -53,4 +53,9 @@ public class UserController {
         else
             return GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage(status).build();
     }
+
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<GenericServiceResponse> deleteUser() {
+        return ResponseEntity.ok(getResponse(userService.deleteUser(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString())));
+    }
 }
