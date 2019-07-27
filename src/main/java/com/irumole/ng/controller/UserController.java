@@ -26,10 +26,17 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping(path = "/test")
+    public String test(){
+        return "test";
+    }
+
     @PostMapping(path = "/register")
     public ResponseEntity<GenericServiceResponse> signUp(@Valid @RequestBody User user, Errors errors) {
         if (errors.hasErrors()) {
-            return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage("Field error").build());
+            return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
+                    .withStatus(Status.FAILED)
+                    .withStatusMessage("Field error").build());
         }
         return ResponseEntity.ok(getResponse(userService.signUp(user)));
     }
