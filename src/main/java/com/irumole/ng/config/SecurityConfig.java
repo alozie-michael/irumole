@@ -11,9 +11,13 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.channel.ChannelProcessingFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-@Order(-1)
+import java.util.ArrayList;
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -44,12 +48,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        http.addFilterBefore(new CorsFilter(), ChannelProcessingFilter.class);
+
+        http
+                .requestMatcher(new AntPathRequestMatcher("/oauth/**"))
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
         http.authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll()
-                .anyRequest()
-                .authenticated()
+                .antMatchers("/**").anonymous()
                 .and()
-                .httpBasic();
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.authorizeRequests().anyRequest().permitAll();
     }
 
     @Override
