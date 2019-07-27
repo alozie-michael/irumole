@@ -6,10 +6,10 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-//@EnableWebMvc
-public class WebConfig {
+@EnableWebMvc
+public class WebConfig implements WebMvcConfigurer {
 
-    /*@Override
+    @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
                 .allowedOrigins("*")
@@ -17,5 +17,5 @@ public class WebConfig {
                 .allowedHeaders("*")
                 .allowCredentials(false)
                 .maxAge(3600);
-    }*/
+    }
 }
