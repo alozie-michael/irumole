@@ -12,9 +12,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(path = "/service")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ServiceController {
 
     private final ServiceResolver serviceResolver;
