@@ -26,13 +26,11 @@ public class UserController {
         this.userService = userService;
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/test")
     public String test(){
         return "test";
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/test2")
     public String test2(){
         return "test2";
@@ -48,6 +46,7 @@ public class UserController {
         return ResponseEntity.ok(getResponse(userService.signUp(user)));
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/bank")
     public ResponseEntity<GenericServiceResponse> getBank(){
         return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
