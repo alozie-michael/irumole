@@ -16,7 +16,6 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(path = "/user")
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 
     private final
@@ -32,6 +31,7 @@ public class UserController {
         return "test";
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/test2")
     public String test2(){
         return "test2";
