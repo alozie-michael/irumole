@@ -52,7 +52,8 @@ public class UserController {
         return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
                 .withStatus(Status.SUCCESS)
                 .withStatusMessage("successful")
-                .withData(userService.getBanks(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString()))
+                //SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString()
+                .withData(userService.getBanks("alozienedu@gmail.com"))
                 .build());
     }
 
