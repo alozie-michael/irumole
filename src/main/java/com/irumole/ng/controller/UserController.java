@@ -26,6 +26,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/test")
     public String test(){
         return "test";
