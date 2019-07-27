@@ -47,6 +47,7 @@ public class UserController {
         return ResponseEntity.ok(getResponse(userService.signUp(user)));
     }
 
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/bank")
     public ResponseEntity<GenericServiceResponse> getBank(){
         return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
