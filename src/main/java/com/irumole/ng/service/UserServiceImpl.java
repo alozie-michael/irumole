@@ -92,4 +92,21 @@ public class UserServiceImpl implements UserService {
         return "success";
     }
 
+    @Override
+    public List<com.irumole.ng.dto.Bank> getBanks(String username) {
+        Optional<com.irumole.ng.model.User> user = userRepository.getUser(username);
+        List<com.irumole.ng.dto.Bank> banks = new ArrayList<>();
+        //Retrieve user bank
+        List<com.irumole.ng.model.UserBank> userBanks = user.get().getUserBank();
+        if(userBanks.size() > 0) {
+            userBanks.forEach(userBank -> {
+                com.irumole.ng.dto.Bank bank = new com.irumole.ng.dto.Bank();
+                BeanUtils.copyProperties(userBank.getBank(), bank);
+                banks.add(bank);
+            });
+            return banks;
+        }else {
+            return banks;
+        }
+    }
 }
