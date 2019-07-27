@@ -39,8 +39,7 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
-        security.allowFormAuthenticationForClients()
-                .addTokenEndpointAuthenticationFilter(new AuthFilter());
+        security.addTokenEndpointAuthenticationFilter(new AuthFilter());
     }
 
     @Override
