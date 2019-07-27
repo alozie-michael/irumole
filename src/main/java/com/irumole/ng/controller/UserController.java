@@ -34,6 +34,15 @@ public class UserController {
         return ResponseEntity.ok(getResponse(userService.signUp(user)));
     }
 
+    @GetMapping(path = "/bank")
+    public ResponseEntity<GenericServiceResponse> getBank(){
+        return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
+                .withStatus(Status.SUCCESS)
+                .withStatusMessage("successful")
+                .withData(userService.getBanks(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString()))
+                .build());
+    }
+
     @PostMapping(path = "/bank")
     public ResponseEntity<GenericServiceResponse> addBank(@Valid @RequestBody UserBank userBank, Errors errors) {
         if (errors.hasErrors()) {
