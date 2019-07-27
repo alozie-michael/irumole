@@ -56,15 +56,16 @@ public class UserController {
         return ResponseEntity.ok(getResponse(userService.removeBank(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString(), bankCode)));
     }
 
+    @DeleteMapping(path = "/delete")
+    public ResponseEntity<GenericServiceResponse> deleteUser() {
+        return ResponseEntity.ok(getResponse(userService.deleteUser(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString())));
+    }
+
+
     private GenericServiceResponse getResponse(String status) {
         if (status.equals("success"))
             return GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.SUCCESS).withStatusMessage(status).build();
         else
             return GenericServiceResponseBuilder.aGenericServiceResponseBuilder().withStatus(Status.FAILED).withStatusMessage(status).build();
-    }
-
-    @DeleteMapping(path = "/delete")
-    public ResponseEntity<GenericServiceResponse> deleteUser() {
-        return ResponseEntity.ok(getResponse(userService.deleteUser(SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString())));
     }
 }
