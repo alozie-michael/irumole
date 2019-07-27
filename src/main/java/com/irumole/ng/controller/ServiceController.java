@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/service")
+@CrossOrigin
 public class ServiceController {
 
     private final ServiceResolver serviceResolver;

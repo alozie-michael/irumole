@@ -1,5 +1,5 @@
-/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/config/CustomTokenEnhancer.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dao/Service.java
+/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/Bank.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/service/provider/Skye.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/repository/UserRepository.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/service/provider/Diamond.java
@@ -41,6 +41,7 @@
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/config/SecurityConfig.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/service/UserService.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/GenericServiceResponseBuilder.java
+/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/config/WebConfig.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/config/AuthorizationServer.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/Status.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/GenericServiceResponse.java
@@ -49,6 +50,7 @@
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/model/Bank.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dao/User.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/Transaction.java
+/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dao/TransactionDate.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dao/BankLogin.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/model/UserBank.java
 /Users/michaelalozie/OneDrive - Trium Networks Limited/dev/irumole/src/main/java/com/irumole/ng/dto/Account.java
