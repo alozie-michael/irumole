@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(path = "/user")
 public class UserController {
@@ -46,7 +47,6 @@ public class UserController {
         return ResponseEntity.ok(getResponse(userService.signUp(user)));
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(path = "/bank")
     public ResponseEntity<GenericServiceResponse> getBank(){
         return ResponseEntity.ok(GenericServiceResponseBuilder.aGenericServiceResponseBuilder()
