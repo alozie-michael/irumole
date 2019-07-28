@@ -4,6 +4,7 @@ package com.irumole.ng.service;
 import com.irumole.ng.Security.Security;
 import com.irumole.ng.dao.BankLogin;
 import com.irumole.ng.dao.Service;
+import com.irumole.ng.error.BankNotFoundExecption;
 import com.irumole.ng.model.User;
 import com.irumole.ng.model.UserBank;
 import com.irumole.ng.repository.UserRepository;
@@ -141,7 +142,7 @@ public class ServiceResolver {
             }
             break;
             default:
-                response = "Invalid Bank Code";
+                throw new BankNotFoundExecption(bankLogin.getBankCode());
         }
         return response;
     }

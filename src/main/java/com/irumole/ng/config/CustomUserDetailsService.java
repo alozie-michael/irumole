@@ -1,5 +1,6 @@
 package com.irumole.ng.config;
 
+import com.irumole.ng.error.CustomerNotFoundException;
 import com.irumole.ng.model.User;
 import com.irumole.ng.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ public class CustomUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UserBuilder userBuilder;
         Optional<User> user = userRepository.getUser(username);
-        if (!user.isPresent()) {
-            throw new UsernameNotFoundException(username);
-        }
+        if (!user.isPresent())
+            throw new CustomerNotFoundException(username);
+
         userBuilder = org.springframework.security.core.userdetails.User.withUsername(username);
         userBuilder.password(user.get().getPassword());
         userBuilder.roles(user.get().getRoles());
