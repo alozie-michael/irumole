@@ -27,16 +27,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(path = "/test")
-    public String test(){
-        return "test";
-    }
-
-    @GetMapping(path = "/test2")
-    public String test2(){
-        return "test2";
-    }
-
     @PostMapping(path = "/register")
     public ResponseEntity<GenericServiceResponse> signUp(@Valid @RequestBody User user, Errors errors) {
         if (errors.hasErrors()) {
