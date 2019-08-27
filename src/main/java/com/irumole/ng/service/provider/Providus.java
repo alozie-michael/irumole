@@ -4,6 +4,7 @@ import com.irumole.ng.dao.BankLogin;
 import com.irumole.ng.dto.Account;
 import com.irumole.ng.dto.Balance;
 import com.irumole.ng.dto.Transaction;
+import com.irumole.ng.error.InternalErrorExecption;
 import com.irumole.ng.service.BankOperation;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -26,14 +27,19 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
 
     @Override
     public Account getAccounts(BankLogin bankLogin) {
-        Account account = new Account();
-        BeanUtils.copyProperties(getBalance(bankLogin), account);
-        return account;
+        try {
+            Account account = new Account();
+            BeanUtils.copyProperties(getBalance(bankLogin), account);
+            return account;
+        }catch (Exception e){
+            logger.error("========getAccount(bankLogin) failed for Providus=======", e);
+            throw new InternalErrorExecption("internal error - Providus getAccount(bankLogin)");
+        }
     }
 
     @Override
     public Balance getBalance(BankLogin bankLogin) {
-        Balance balance = new Balance();
+        Balance balance;
         try {
             WebDriver driver = getAccountSection(bankLogin);
             WebDriverWait wait = new WebDriverWait(driver, 60);
@@ -50,8 +56,8 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             logout(driver);
             logger.info("=====Providus Balances retrieved=======");
         } catch (Exception e) {
-            logger.error("========getBalance(bankLogin) failed for Providus=======");
-            e.printStackTrace();
+            logger.error("========getBalance(bankLogin) failed for Providus=======", e);
+            throw new InternalErrorExecption("internal error - Providus getBalance(bankLogin)");
         }
         return balance;
     }
@@ -85,16 +91,15 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             logout(driver);
             logger.info("========Providus transactions retrieved=======");
         } catch (Exception e) {
-            logger.error("========getTransactions(bankLogin) failed for Providus=======");
-            e.printStackTrace();
+            logger.error("========getTransactions(bankLogin) failed for Providus=======", e);
+            throw new InternalErrorExecption("internal error - Providus getTransactions(bankLogin)");
         }
         return transactions;
     }
 
     private WebDriver login(BankLogin bankLogin) {
-
-        WebDriver driver = getDriver();
         try {
+            WebDriver driver = getDriver();
             driver.get(bankLogin.getUrl());
             WebDriverWait wait = new WebDriverWait(driver, 60);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("userName")));
@@ -103,11 +108,11 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             driver.findElement(By.id("submit")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".page #openAccount")));
             driver.findElement(By.id("openAccount")).click();
+            return driver;
         } catch (Exception e) {
-            logger.error("=====Providus login() failed=======");
-            e.printStackTrace();
+            logger.error("=====Providus login() failed=======", e);
+            throw new InternalErrorExecption("internal error - Providus login()");
         }
-        return driver;
     }
 
     private WebDriver getAccountSection(BankLogin bankLogin) {
@@ -132,10 +137,15 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
     }
 
     private void logout(WebDriver driver) {
-        WebDriverWait wait = new WebDriverWait(driver, 60);
-        driver.findElement(By.className("logout")).click();
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".MessageBoxButtonSection #bot2-Msg1")));
-        driver.findElement(By.cssSelector(".MessageBoxButtonSection #bot2-Msg1")).click();
-        driver.close();
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, 60);
+            driver.findElement(By.className("logout")).click();
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".MessageBoxButtonSection #bot2-Msg1")));
+            driver.findElement(By.cssSelector(".MessageBoxButtonSection #bot2-Msg1")).click();
+            driver.close();
+        } catch (Exception e) {
+            logger.error("=====Providus logout() failed=======", e);
+            throw new InternalErrorExecption("internal error - Providus logout()");
+        }
     }
 }

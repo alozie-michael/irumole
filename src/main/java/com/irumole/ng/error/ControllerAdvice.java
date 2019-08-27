@@ -30,6 +30,12 @@ public class ControllerAdvice extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(getGenericResponse(errorMessage, request), HttpStatus.CONFLICT);
     }
 
+    @ExceptionHandler(InternalErrorExecption.class)
+    public final ResponseEntity<GenericServiceResponse> internalErrorException(InternalErrorExecption ex, WebRequest request) {
+        String errorMessage = ex.getMessage();
+        return new ResponseEntity<>(getGenericResponse(errorMessage, request), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
     private GenericServiceResponse getGenericResponse(String errorMessage, WebRequest request){
         return new GenericServiceResponse(Status.FAILED, errorMessage, request.getDescription(false));
     }
