@@ -6,9 +6,12 @@ import com.irumole.ng.dao.UserBank;
 import com.irumole.ng.error.BankNotFoundExecption;
 import com.irumole.ng.error.CustomerNotFoundException;
 import com.irumole.ng.error.ExistingCustomerException;
+import com.irumole.ng.error.InternalErrorExecption;
 import com.irumole.ng.model.Bank;
 import com.irumole.ng.repository.BankRepository;
 import com.irumole.ng.repository.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -25,6 +28,9 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final BankRepository bankRepository;
 
+    private Logger logger = LoggerFactory.getLogger(UserServiceImpl.class);
+
+
     @Autowired
     public UserServiceImpl(UserRepository userRepository, BankRepository bankRepository) {
         this.userRepository = userRepository;
@@ -37,12 +43,18 @@ public class UserServiceImpl implements UserService {
         if (existingUser.isPresent())
             throw new ExistingCustomerException(user.getEmail());
 
-        com.irumole.ng.model.User newUser = new com.irumole.ng.model.User();
-        //Encrypt user password with BCrypt
-        user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
-        BeanUtils.copyProperties(user, newUser);
-        userRepository.insertUser(newUser);
-        return "success";
+        try {
+            com.irumole.ng.model.User newUser = new com.irumole.ng.model.User();
+            //Encrypt user password with BCrypt
+            user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+            BeanUtils.copyProperties(user, newUser);
+            userRepository.insertUser(newUser);
+            return "success";
+        }catch (Exception e){
+            logger.error("Error signing Up", e);
+            throw new InternalErrorExecption("Sign up error for: " + user.getEmail());
+        }
+
     }
 
     @Override
@@ -60,17 +72,22 @@ public class UserServiceImpl implements UserService {
         if (!bank.isPresent())
             throw new BankNotFoundExecption(username);
 
-        com.irumole.ng.model.UserBank newUserBank = new com.irumole.ng.model.UserBank();
-        /*
-         * Encrypt username & password with AES.
-         * User BVN is the salt value
-         * */
-        newUserBank.setUsername(Security.encrypt(userBank.getUsername(), user.get().getBvn()));
-        newUserBank.setPassword(Security.encrypt(userBank.getPassword(), user.get().getBvn()));
-        newUserBank.setBank(bank.get());
-        userBanks.add(newUserBank);
-        userRepository.updateUser(username, "userBank", userBanks);
-        return "success";
+        try {
+            com.irumole.ng.model.UserBank newUserBank = new com.irumole.ng.model.UserBank();
+            /*
+             * Encrypt username & password with AES.
+             * User BVN is the salt value
+             * */
+            newUserBank.setUsername(Security.encrypt(userBank.getUsername(), user.get().getBvn()));
+            newUserBank.setPassword(Security.encrypt(userBank.getPassword(), user.get().getBvn()));
+            newUserBank.setBank(bank.get());
+            userBanks.add(newUserBank);
+            userRepository.updateUser(username, "userBank", userBanks);
+            return "success";
+        }catch (Exception e){
+            logger.error("Error adding bank", e);
+            throw new InternalErrorExecption("Error adding bank for: " + username);
+        }
     }
 
     @Override
@@ -84,9 +101,14 @@ public class UserServiceImpl implements UserService {
         if(userBanks == null)
             throw new BankNotFoundExecption(username);
 
-        List<com.irumole.ng.model.UserBank> newUserBank = userBanks.stream().filter(userBank -> !userBank.getBank().getBankCode().equals(bankCode)).collect(Collectors.toList());
-        userRepository.updateUser(username, "userBank", newUserBank);
-        return "success";
+        try {
+            List<com.irumole.ng.model.UserBank> newUserBank = userBanks.stream().filter(userBank -> !userBank.getBank().getBankCode().equals(bankCode)).collect(Collectors.toList());
+            userRepository.updateUser(username, "userBank", newUserBank);
+            return "success";
+        }catch (Exception e){
+            logger.error("Error removing bank ", e);
+            throw new InternalErrorExecption("Error removing user bank");
+        }
     }
 
     @Override
@@ -95,28 +117,39 @@ public class UserServiceImpl implements UserService {
         if (!user.isPresent())
             throw new CustomerNotFoundException(username);
 
-        userRepository.deleteUser(user.get());
-        return "success";
+        try {
+            userRepository.deleteUser(user.get());
+            return "success";
+        }catch (Exception e){
+            logger.error("Error deleting bank ", e);
+            throw new InternalErrorExecption("Error deleting banks for user: " + username);
+        }
     }
 
     @Override
     public List<com.irumole.ng.dto.Bank> getBanks(String username) {
         Optional<com.irumole.ng.model.User> user = userRepository.getUser(username);
-        if(!user.isPresent())
+        if (!user.isPresent())
             throw new CustomerNotFoundException(username);
 
         List<com.irumole.ng.dto.Bank> banks = new ArrayList<>();
 
         //Retrieve user bank
         List<com.irumole.ng.model.UserBank> userBanks = user.get().getUserBank();
-        if(userBanks == null)
+        if (userBanks == null)
             throw new BankNotFoundExecption(username);
 
-        userBanks.forEach(userBank -> {
-            com.irumole.ng.dto.Bank bank = new com.irumole.ng.dto.Bank();
-            BeanUtils.copyProperties(userBank.getBank(), bank);
-            banks.add(bank);
-        });
-        return banks;
+        try {
+            userBanks.forEach(userBank -> {
+                com.irumole.ng.dto.Bank bank = new com.irumole.ng.dto.Bank();
+                BeanUtils.copyProperties(userBank.getBank(), bank);
+                banks.add(bank);
+            });
+            return banks;
+        }catch (Exception e){
+            logger.error("Error getting bank ", e);
+            throw new InternalErrorExecption("Error getting banks for user: " + username);
         }
+
     }
+}
