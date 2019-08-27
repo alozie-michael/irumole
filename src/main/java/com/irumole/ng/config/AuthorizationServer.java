@@ -19,10 +19,12 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     private static final String signedKey = "Irumole-signature";
     private final AuthenticationManager authenticationManager;
+    private final CustomUserDetailsService userDetailsService;
 
     @Autowired
-    public AuthorizationServer(AuthenticationManager authenticationManager) {
+    public AuthorizationServer(AuthenticationManager authenticationManager, CustomUserDetailsService userDetailsService) {
         this.authenticationManager = authenticationManager;
+        this.userDetailsService = userDetailsService;
     }
 
     @Bean
@@ -39,7 +41,8 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security) {
-        security.addTokenEndpointAuthenticationFilter(new AuthFilter());
+        security
+                .addTokenEndpointAuthenticationFilter(new AuthFilter());
     }
 
     @Override
@@ -51,13 +54,15 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
                 .authorities("ROLE_CLIENT", "ROLE_TRUSTED_CLIENT")
                 .scopes("read", "write", "trust")
                 .resourceIds("irumole_resource_id")
-                .accessTokenValiditySeconds(600);
+                .accessTokenValiditySeconds(6000);
     }
 
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints){
         endpoints.authenticationManager(authenticationManager)
+                .userDetailsService(userDetailsService)
                 .tokenStore(tokenStore())
-                .accessTokenConverter(jwtAccessTokenConverter());
+                .accessTokenConverter(jwtAccessTokenConverter())
+                .reuseRefreshTokens(false);
     }
 }
