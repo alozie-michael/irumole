@@ -16,6 +16,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,8 +59,8 @@ public class GuaranteedTrust extends com.irumole.ng.service.WebDriver implements
             WebDriverWait wait = new WebDriverWait(driver, 60);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_eo__ctl0_bdpStartDate_picker")));
             //set transaction start and end date - mm/dd/yyyy
-            driver.findElement(By.id("_eo__ctl0_bdpStartDate_picker")).sendKeys(bankLogin.getFrom());
-            driver.findElement(By.id("_eo__ctl0_bdpEndDate_picker")).sendKeys(bankLogin.getTo());
+            driver.findElement(By.id("_eo__ctl0_bdpStartDate_picker")).sendKeys(formatDate(bankLogin.getFrom()));
+            driver.findElement(By.id("_eo__ctl0_bdpEndDate_picker")).sendKeys(formatDate(bankLogin.getTo()));
             driver.findElement(By.id("_ctl0_btnGo")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_ctl0_dgtrans")));
             List<WebElement> transactionRowsElement = driver.findElements(By.cssSelector("#_ctl0_dgtrans tr"));
@@ -127,5 +131,10 @@ public class GuaranteedTrust extends com.irumole.ng.service.WebDriver implements
     private String extractAccountName(String string) {
         //extract account name from "Internet Banking - Customer Feed Back from [account name]- [account number]"
         return string.substring(42, string.indexOf("-", string.indexOf("-") + 1)).trim();
+    }
+
+    private String formatDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        return new SimpleDateFormat("dd/MM/yyyy").format(Date.valueOf(LocalDate.parse(date, formatter)));
     }
 }

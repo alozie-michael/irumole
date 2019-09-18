@@ -6,11 +6,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class WebDriver {
 
+    @Value("${irumole.chrome.driver.path}")
+    private String chromeDriverPath;
     private Logger logger = LoggerFactory.getLogger(WebDriver.class);
 
     protected org.openqa.selenium.WebDriver getDriver(){
@@ -20,10 +23,14 @@ public class WebDriver {
         options.addArguments("--headless");
 
         if(OS.isFamilyMac()){
-            System.setProperty("webdriver.chrome.driver", "/Users/michaelalozie/OneDrive - Trium Networks Limited/dev/chromedriver");
+            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
         }
 
-        if(OS.isFamilyUnix()){
+        if(OS.isFamilyWindows()){
+            System.setProperty("webdriver.chrome.driver", chromeDriverPath);
+        }
+
+        /*if(OS.isFamilyUnix()){
             try{
                 //GOOGLE_CHROME_SHIM GOOGLE_CHROME_BIN
                 String binaryPath=EnvironmentUtils.getProcEnvironment().get("GOOGLE_CHROME_SHIM");
@@ -34,7 +41,7 @@ public class WebDriver {
             }catch(Exception e){
                 e.printStackTrace();
             }
-        }
+        }*/
 
         return new ChromeDriver(options);
     }

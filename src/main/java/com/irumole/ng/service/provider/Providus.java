@@ -16,6 +16,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,8 +76,8 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             driver.findElement(By.cssSelector(".acct-details a:nth-child(3)")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#content form")));
             //set transaction start and end date - mm/dd/yyyy
-            driver.findElement(By.id("Mini Statement.Date From")).sendKeys(bankLogin.getFrom().getDay() + "/" + bankLogin.getFrom().getMonth() + "/" + bankLogin.getFrom().getYear());
-            driver.findElement(By.id("Mini Statement.Date To")).sendKeys(bankLogin.getTo().getDay() + "/" + bankLogin.getTo().getMonth() + "/" + bankLogin.getTo().getYear());
+            driver.findElement(By.id("Mini Statement.Date From")).sendKeys(formatDate(bankLogin.getFrom()));
+            driver.findElement(By.id("Mini Statement.Date To")).sendKeys(formatDate(bankLogin.getTo()));
             driver.findElement(By.cssSelector("footer button")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("Results")));
             List<WebElement> resultRows = driver.findElements(By.cssSelector("#Results tbody tr"));
@@ -113,6 +117,11 @@ public class Providus extends com.irumole.ng.service.WebDriver implements BankOp
             logger.error("=====Providus login() failed=======", e);
             throw new InternalErrorExecption("internal error - Providus login()");
         }
+    }
+
+    private String formatDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("ddMMyyyy");
+        return new SimpleDateFormat("MM/dd/yyyy").format(Date.valueOf(LocalDate.parse(date, formatter)));
     }
 
     private WebDriver getAccountSection(BankLogin bankLogin) {
