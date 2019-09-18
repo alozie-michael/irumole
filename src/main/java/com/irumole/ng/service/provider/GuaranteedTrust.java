@@ -55,8 +55,8 @@ public class GuaranteedTrust extends com.irumole.ng.service.WebDriver implements
             WebDriverWait wait = new WebDriverWait(driver, 60);
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_eo__ctl0_bdpStartDate_picker")));
             //set transaction start and end date - mm/dd/yyyy
-            driver.findElement(By.id("_eo__ctl0_bdpStartDate_picker")).sendKeys(bankLogin.getFrom().getMonth() + "/" + bankLogin.getFrom().getDay() + "/" + bankLogin.getFrom().getYear());
-            driver.findElement(By.id("_eo__ctl0_bdpEndDate_picker")).sendKeys(bankLogin.getTo().getMonth() + "/" + bankLogin.getTo().getDay() + "/" + bankLogin.getTo().getYear());
+            driver.findElement(By.id("_eo__ctl0_bdpStartDate_picker")).sendKeys(bankLogin.getFrom());
+            driver.findElement(By.id("_eo__ctl0_bdpEndDate_picker")).sendKeys(bankLogin.getTo());
             driver.findElement(By.id("_ctl0_btnGo")).click();
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("_ctl0_dgtrans")));
             List<WebElement> transactionRowsElement = driver.findElements(By.cssSelector("#_ctl0_dgtrans tr"));

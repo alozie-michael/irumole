@@ -1,4 +1,4 @@
-package com.irumole.ng.service;
+package com.irumole.ng.service.impl;
 
 import com.irumole.ng.Security.Security;
 import com.irumole.ng.dao.User;
@@ -10,6 +10,7 @@ import com.irumole.ng.error.InternalErrorExecption;
 import com.irumole.ng.model.Bank;
 import com.irumole.ng.repository.BankRepository;
 import com.irumole.ng.repository.UserRepository;
+import com.irumole.ng.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
